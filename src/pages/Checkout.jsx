@@ -63,17 +63,17 @@ export default function Checkout() {
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
                             <span className="text-xs line-through text-muted-foreground">
-                              ${item.originalPrice}
+                              ₹{item.originalPrice}
                             </span>
                             <span className="text-lg font-semibold text-accent">
-                              ${item.product?.price ?? item.price}
+                              ₹{item.product?.price ?? item.price}
                             </span>
                             <span className="text-xs font-semibold bg-accent/10 text-accent px-2 py-1 rounded">
                               {item.discount}% off
                             </span>
                           </div>
                           <div className="text-sm font-semibold text-foreground">
-                            Subtotal: ${(item.product?.price ?? item.price * item.quantity).toFixed(2)}
+                            Subtotal: ₹{(item.product?.price ?? item.price * item.quantity).toFixed(2)}
                           </div>
                         </div>
 
@@ -116,11 +116,11 @@ export default function Checkout() {
                 <div className="space-y-4 mb-6 pb-6 border-b border-border">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span className="font-semibold text-foreground">${subtotal.toFixed(2)}</span>
+                    <span className="font-semibold text-foreground">₹{subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Tax (10%)</span>
-                    <span className="font-semibold text-foreground">${tax.toFixed(2)}</span>
+                    <span className="font-semibold text-foreground">₹{tax.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-green-600">
                     <span>Shipping</span>
@@ -130,7 +130,7 @@ export default function Checkout() {
 
                 <div className="flex justify-between items-center mb-6 bg-muted p-4 rounded-lg">
                   <span className="font-serif text-xl font-bold text-foreground">Total</span>
-                  <span className="font-serif text-3xl font-bold text-accent">${total.toFixed(2)}</span>
+                  <span className="font-serif text-3xl font-bold text-accent">₹{total.toFixed(2)}</span>
                 </div>
 
                 <button

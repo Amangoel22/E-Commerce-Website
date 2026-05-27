@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 export default function PromoBanner() {
   const messages = [
-    { text: 'Free shipping on orders over $50', code: 'SHIP2024' },
+    { text: 'Free shipping on orders over ₹50', code: 'SHIP2024' },
     { text: '20% off your first purchase', code: 'FIRST20' },
     { text: 'Exclusive deals on new arrivals', code: 'NEW2024' },
     { text: 'Bundle 3+ items and save 15%', code: 'BUNDLE15' },

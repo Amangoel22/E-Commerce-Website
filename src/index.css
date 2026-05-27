@@ -14,13 +14,13 @@
   --secondary-foreground: oklch(0.12 0 0);
   --muted: oklch(0.92 0.003 0);
   --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.72 0.15 70);
-  --accent-foreground: oklch(0.12 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
+  --accent: oklch(0.50 0.15 160);
+  --ring: oklch(0.50 0.15 160);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(24.776% 0.00003 271.152);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.94 0.002 0);
   --input: oklch(0.94 0.002 0);
-  --ring: oklch(0.72 0.15 70);
 }
 
 .dark {
@@ -73,14 +73,20 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 @keyframes intro-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes intro-fade-up {
@@ -88,6 +94,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+
   to {
     opacity: 0;
     transform: translateY(-40px);
@@ -95,8 +102,13 @@
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slide-up {
@@ -104,6 +116,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -115,6 +128,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -141,4 +155,3 @@
 .animate-scale-up {
   animation: scale-up 300ms ease-out forwards;
 }
-

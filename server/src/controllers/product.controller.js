@@ -6,8 +6,35 @@ const getProducts = async (req, res) => {
     const { category } = req.query
 
     const products = category && category !== 'all'
-      ? await prisma.product.findMany({ where: { category } })
-      : await prisma.product.findMany()
+  ? await prisma.product.findMany({
+      where: { category },
+      select: {
+        id: true,
+        name: true,
+        price: true,
+        originalPrice: true,
+        discount: true,
+        rating: true,
+        category: true,
+        images: true,
+        description: true,
+        stock: true
+      }
+    })
+  : await prisma.product.findMany({
+      select: {
+        id: true,
+        name: true,
+        price: true,
+        originalPrice: true,
+        discount: true,
+        rating: true,
+        category: true,
+        images: true,
+        description: true,
+        stock: true
+      }
+    })
 
     res.json(products)
   } catch (error) {

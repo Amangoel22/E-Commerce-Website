@@ -230,7 +230,7 @@ export default function Payment() {
                 className="w-full py-3 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 <Lock size={16} />
-                {loading ? 'Opening Payment...' : `Pay ₹${total.toFixed(2)}`}
+                {loading ? 'Opening Payment...' : `Pay ₹{total.toFixed(2)}`}
               </button>
 
               <p className="text-xs text-muted-foreground text-center mt-4">

@@ -83,7 +83,7 @@ export default function Home() {
             </div>
             <div className="border-t border-border pt-8">
               <p className="text-center text-sm text-muted-foreground">
-                © 2024 Shop.com. All rights reserved.
+                © {new Date().getFullYear()} Shop.com. All rights reserved.
               </p>
             </div>
           </div>

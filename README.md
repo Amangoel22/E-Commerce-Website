@@ -14,7 +14,7 @@ A full-stack e-commerce web application built with React, Node.js, PostgreSQL, P
 | ORM | Prisma |
 | Auth | JWT + bcrypt |
 | Payments | Razorpay |
-| Hosting (DB) | Render |
+| Hosting (DB) | Supabase |
 
 ## Features
 
@@ -130,7 +130,7 @@ Frontend runs on `http://localhost:3000`
 cd server
 npx prisma studio
 ```
-Opens at `http://localhost:5555`
+Opens at `http://localhost:3000`
 
 ## API Endpoints
 
@@ -191,3 +191,6 @@ CVC: Any 3 digits
 ## Making a User Admin
 
 Open Prisma Studio → User table → find your user → change role to `ADMIN` → save.
+
+## Live AT:
+https://shop-com-frontend.onrender.com/

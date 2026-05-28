@@ -1,6 +1,5 @@
 const prisma = require('../lib/prisma')
 
-// GET /cart - get user's cart
 const getCart = async (req, res) => {
   try {
     const userId = req.user.userId
@@ -27,7 +26,6 @@ const getCart = async (req, res) => {
   }
 }
 
-// POST /cart - add item to cart
 const addToCart = async (req, res) => {
   try {
     const userId = req.user.userId
@@ -64,7 +62,6 @@ const addToCart = async (req, res) => {
   }
 }
 
-// PUT /cart/:itemId - update quantity
 const updateCartItem = async (req, res) => {
   try {
     const { itemId } = req.params
@@ -90,7 +87,6 @@ const updateCartItem = async (req, res) => {
   }
 }
 
-// DELETE /cart/:itemId - remove item
 const removeFromCart = async (req, res) => {
   try {
     const { itemId } = req.params

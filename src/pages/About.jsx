@@ -125,7 +125,7 @@ export default function About() {
                 </div>
                 <div className="p-6">
                   <h3 className="font-semibold text-foreground mb-1">Team Member {i}</h3>
-                  <p className="text-sm text-accent mb-3">Leadership Role</p>
+                  <p className="text-sm text-accent mb-3">Executive</p>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Passionate about delivering exceptional customer experiences and building a sustainable future.
                   </p>

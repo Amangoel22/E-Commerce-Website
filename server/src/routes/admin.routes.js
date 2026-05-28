@@ -11,7 +11,6 @@ const {
   deleteProduct
 } = require('../controllers/admin.controller')
 
-// all admin routes need login + admin role
 router.use(protect)
 router.use(isAdmin)
 

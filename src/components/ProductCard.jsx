@@ -56,7 +56,6 @@ export default function ProductCard({ product, onAddToCart }) {
             <span className="text-lg font-semibold text-accent">
               ₹{product.price}
             </span>
-            {/* TODO: Backend - Connect discount to product database */}
             <span className="text-xs font-semibold bg-accent/10 text-accent px-2 py-1 rounded">
               {product.discount}% off
             </span>

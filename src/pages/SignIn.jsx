@@ -28,12 +28,10 @@ export default function SignIn() {
     try {
         const response = await loginUser({ email, password })
         
-        // store token in localStorage
         localStorage.setItem('token', response.data.token)
         localStorage.setItem('user', JSON.stringify(response.data.user))
         
         console.log('Logged in:', response.data.user)
-        // redirect to dashboard or home page
         login(response.data.user, response.data.token)
         navigate('/')
     } catch (error) {

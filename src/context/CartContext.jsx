@@ -8,7 +8,6 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([])
   const { user } = useAuth()
 
-  // load cart from DB when user logs in
   useEffect(() => {
     if (user) {
       fetchCart()
@@ -35,7 +34,6 @@ export function CartProvider({ children }) {
         console.error('Failed to add to cart', error)
       }
     } else {
-      // not logged in - keep in local state only
       setCartItems(prev => {
         const existing = prev.find(item => item.id === product.id)
         if (existing) {

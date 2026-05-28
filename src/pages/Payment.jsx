@@ -21,7 +21,6 @@ export default function Payment() {
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
-      // check if already loaded
       if (window.Razorpay) {
         resolve(true)
         return
@@ -44,7 +43,6 @@ export default function Payment() {
     setError('')
 
     try {
-      // step 1 - load razorpay script
       const scriptLoaded = await loadRazorpayScript()
       if (!scriptLoaded) {
         setError('Failed to load payment gateway. Check your internet connection.')
@@ -52,10 +50,8 @@ export default function Payment() {
         return
       }
 
-      // step 2 - create order on backend
       const { data } = await axiosInstance.post('/payment/create-order')
 
-      // step 3 - open razorpay popup
       const options = {
         key: data.keyId,
         amount: data.amount,
@@ -71,7 +67,6 @@ export default function Payment() {
           color: '#000000'
         },
         handler: async (response) => {
-          // step 4 - payment done, verify with backend
           try {
             await axiosInstance.post('/payment/verify', {
               razorpay_order_id: response.razorpay_order_id,
@@ -146,7 +141,6 @@ export default function Payment() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-          {/* cart items */}
           <div className="lg:col-span-2">
             <div className="bg-card border border-border rounded-lg overflow-hidden">
               {cartItems.length === 0 ? (
@@ -165,12 +159,12 @@ export default function Payment() {
                       <div className="flex gap-4 items-center">
                         <div className="w-16 h-16 bg-secondary rounded-lg overflow-hidden shrink-0">
                           <img
-                            src={image}
-                            alt={name}
-                            className="w-full h-full object-cover"
+                            src={item.product?.images?.[0] ?? item.images?.[0]}
+                            alt={item.product?.name ?? item.name}
+                            className="w-24 h-24 object-cover rounded-lg"
                             onError={(e) => {
                               e.target.style.display = 'none'
-                              e.target.parentElement.innerHTML = '📦'
+                              e.target.parentElement.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem">📦</div>'
                             }}
                           />
                         </div>
@@ -191,7 +185,6 @@ export default function Payment() {
             </div>
           </div>
 
-          {/* order total + pay button */}
           <div className="lg:col-span-1">
             <div className="bg-card border border-border rounded-lg p-6 sticky top-20">
               <h2 className="font-serif text-2xl font-bold text-foreground mb-6">
@@ -230,7 +223,7 @@ export default function Payment() {
                 className="w-full py-3 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 <Lock size={16} />
-                {loading ? 'Opening Payment...' : `Pay ₹{total.toFixed(2)}`}
+                {loading ? 'Opening Payment...' : `Pay ₹${total.toFixed(2)}`}
               </button>
 
               <p className="text-xs text-muted-foreground text-center mt-4">

@@ -3,7 +3,6 @@ const router = express.Router()
 const { getCart, addToCart, updateCartItem, removeFromCart } = require('../controllers/cart.controller')
 const { protect } = require('../middleware/auth.middleware')
 
-// all cart routes require login
 router.use(protect)
 
 router.get('/', getCart)

@@ -26,7 +26,7 @@ export default function Checkout() {
     <>
       <Navbar cartCount={cartItems.length} onSearch={setSearchQuery} />
       <div className="h-16" />
-      
+
       <main className="max-w-7xl mx-auto px-4 md:px-6 py-12">
         <h1 className="font-serif text-4xl font-bold text-foreground mb-8">Shopping Cart</h1>
 
@@ -49,17 +49,20 @@ export default function Checkout() {
                   <div key={item.id} className="border-b border-border p-6 last:border-b-0 hover:bg-muted/30 transition-colors">
                     <div className="flex gap-6">
                       <img
-                        src={item.product?.images[0] ?? item.image}
+                        src={item.product?.images?.[0] ?? item.images?.[0]}
                         alt={item.product?.name ?? item.name}
                         className="w-24 h-24 object-cover rounded-lg"
-                        onError={(e) => e.target.style.display = 'none'}
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                          e.target.parentElement.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem">📦</div>'
+                        }}
                       />
                       <div className="flex-1">
                         <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                           {item.product?.name ?? item.name}
                         </h3>
                         <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
-                        
+
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
                             <span className="text-xs line-through text-muted-foreground">
@@ -73,11 +76,11 @@ export default function Checkout() {
                             </span>
                           </div>
                           <div className="text-sm font-semibold text-foreground">
-                            Subtotal: ₹{(item.product?.price ?? item.price * item.quantity).toFixed(2)}
+                            Subtotal: ₹{((item.product?.price ?? item.price) * item.quantity).toFixed(2)}
                           </div>
                         </div>
 
-                        {/* Quantity Controls */}
+                        {/* Quantity */}
                         <div className="flex items-center gap-4">
                           <div className="flex items-center gap-2 border border-border rounded-lg">
                             <button
@@ -108,11 +111,11 @@ export default function Checkout() {
               </div>
             </div>
 
-            {/* Order Summary */}
+            {/* Order */}
             <div className="lg:col-span-1">
               <div className="bg-card border border-border rounded-lg p-6 sticky top-20">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-6">Order Summary</h2>
-                
+
                 <div className="space-y-4 mb-6 pb-6 border-b border-border">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Subtotal</span>

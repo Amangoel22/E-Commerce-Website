@@ -7,7 +7,6 @@ async function main() {
     // Electronics
     { name: 'Wireless Headphones', price: 2499, originalPrice: 3499 },
     { name: 'USB-C Cable', price: 299, originalPrice: 499 },
-    { name: 'Portable Charger', price: 1299, originalPrice: 1999 },
     { name: 'Desk Lamp', price: 899, originalPrice: 1499 },
     { name: 'Mechanical Keyboard', price: 3499, originalPrice: 5999 },
     { name: 'Wireless Mouse', price: 999, originalPrice: 1499 },
@@ -16,7 +15,6 @@ async function main() {
 
     // Clothing
     { name: 'Cotton T-Shirt', price: 499, originalPrice: 799 },
-    { name: 'Denim Jeans', price: 1499, originalPrice: 2199 },
     { name: 'Casual Sweater', price: 1199, originalPrice: 1799 },
     { name: 'Wool Jacket', price: 2999, originalPrice: 4499 },
     { name: 'Summer Dress', price: 1299, originalPrice: 1999 },
@@ -49,20 +47,8 @@ async function main() {
     { name: 'Lip Balm', price: 199, originalPrice: 349 },
     { name: 'Body Lotion', price: 499, originalPrice: 799 },
     { name: 'Facial Serum', price: 1299, originalPrice: 1999 },
-    { name: 'Makeup Brush Set', price: 799, originalPrice: 1299 },
-    { name: 'Hair Mask', price: 449, originalPrice: 749 },
     { name: 'Sunscreen SPF50', price: 599, originalPrice: 899 },
     { name: 'Eye Cream', price: 899, originalPrice: 1399 },
-
-    // Books
-    { name: 'Fiction Novel', price: 299, originalPrice: 499 },
-    { name: 'Science Book', price: 499, originalPrice: 799 },
-    { name: 'Self-Help Guide', price: 349, originalPrice: 549 },
-    { name: 'Cookbook', price: 599, originalPrice: 999 },
-    { name: 'Travel Guide', price: 449, originalPrice: 699 },
-    { name: 'History Book', price: 549, originalPrice: 849 },
-    { name: 'Poetry Collection', price: 249, originalPrice: 399 },
-    { name: 'Comic Book', price: 199, originalPrice: 349 },
   ]
 
   for (const item of updates) {

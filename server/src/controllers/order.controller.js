@@ -1,6 +1,5 @@
 const prisma = require('../lib/prisma')
 
-// POST /orders - place order from cart
 const createOrder = async (req, res) => {
   try {
     const userId = req.user.userId
@@ -34,7 +33,6 @@ const createOrder = async (req, res) => {
       include: { items: { include: { product: true } } }
     })
 
-    // clear the cart after order
     await prisma.cartItem.deleteMany({ where: { cartId: cart.id } })
 
     res.status(201).json(order)
@@ -43,7 +41,6 @@ const createOrder = async (req, res) => {
   }
 }
 
-// GET /orders - get user's order history
 const getOrders = async (req, res) => {
   try {
     const orders = await prisma.order.findMany({
@@ -58,7 +55,6 @@ const getOrders = async (req, res) => {
   }
 }
 
-// GET /orders/:id - get single order
 const getOrderById = async (req, res) => {
   try {
     const order = await prisma.order.findUnique({

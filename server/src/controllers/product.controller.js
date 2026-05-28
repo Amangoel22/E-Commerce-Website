@@ -1,6 +1,5 @@
 const prisma = require('../lib/prisma')
 
-// Get all products
 const getProducts = async (req, res) => {
   try {
     const { category } = req.query
@@ -42,7 +41,6 @@ const getProducts = async (req, res) => {
   }
 }
 
-// Get product by ID
 const getProductById = async (req, res) => {
   try {
     const { id } = req.params
@@ -62,7 +60,6 @@ const getProductById = async (req, res) => {
   }
 }
 
-// Search products by name or description
 const searchProducts = async (req, res) => {
   try {
     const { q } = req.query

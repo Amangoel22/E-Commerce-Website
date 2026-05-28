@@ -1,6 +1,5 @@
 const prisma = require('../lib/prisma')
 
-// GET /admin/stats - dashboard numbers
 const getStats = async (req, res) => {
   try {
     const [totalUsers, totalProducts, totalOrders, revenueData] = await Promise.all([
@@ -24,7 +23,6 @@ const getStats = async (req, res) => {
   }
 }
 
-// GET /admin/orders - all orders
 const getAllOrders = async (req, res) => {
   try {
     const orders = await prisma.order.findMany({
@@ -40,7 +38,6 @@ const getAllOrders = async (req, res) => {
   }
 }
 
-// PUT /admin/orders/:id - update order status
 const updateOrderStatus = async (req, res) => {
   try {
     const { status } = req.body
@@ -54,7 +51,6 @@ const updateOrderStatus = async (req, res) => {
   }
 }
 
-// GET /admin/users - all users
 const getAllUsers = async (req, res) => {
   try {
     const users = await prisma.user.findMany({
@@ -73,7 +69,6 @@ const getAllUsers = async (req, res) => {
   }
 }
 
-// POST /admin/products - create product
 const createProduct = async (req, res) => {
   try {
     const { name, description, price, originalPrice, discount, stock, category, images } = req.body
@@ -95,7 +90,6 @@ const createProduct = async (req, res) => {
   }
 }
 
-// PUT /admin/products/:id - update product
 const updateProduct = async (req, res) => {
   try {
     const product = await prisma.product.update({
@@ -108,7 +102,6 @@ const updateProduct = async (req, res) => {
   }
 }
 
-// DELETE /admin/products/:id - delete product
 const deleteProduct = async (req, res) => {
   try {
     await prisma.product.delete({ where: { id: req.params.id } })

@@ -6,7 +6,6 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
     const [token, setToken] = useState(null)
 
-    // on app load, checks local storage for existing token and user data
     useEffect(() => {
         const savedToken = localStorage.getItem('token')
         const savedUser = localStorage.getItem('user')

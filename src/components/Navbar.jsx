@@ -16,9 +16,6 @@ export default function Navbar({ cartCount, onSearch }) {
     { label: 'New Arrivals', href: '/' },
     { label: 'About', href: '/about' },
   ]
-
-  // TODO: Backend - Connect to product database search API
-  // Replace this with actual backend search endpoint
   const handleSearch = (query) => {
     setSearchQuery(query)
     if (onSearch) {

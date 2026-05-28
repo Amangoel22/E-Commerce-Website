@@ -8,7 +8,6 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET
 })
 
-// POST /payment/create-order
 const createOrder = async (req, res) => {
   
   try {
@@ -50,7 +49,6 @@ const createOrder = async (req, res) => {
   }
 }
 
-// POST /payment/verify
 const verifyPayment = async (req, res) => {
   try {
     const {
@@ -59,7 +57,6 @@ const verifyPayment = async (req, res) => {
       razorpay_signature
     } = req.body
 
-    // payment actually came from razorpay and wasnt faked
     const body = razorpay_order_id + '|' + razorpay_payment_id
     const expectedSignature = crypto
       .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
@@ -70,7 +67,6 @@ const verifyPayment = async (req, res) => {
       return res.status(400).json({ message: 'Payment verification failed' })
     }
 
-    // payment is genuine
     const userId = req.user.userId
 
     const cart = await prisma.cart.findUnique({
@@ -98,7 +94,6 @@ const verifyPayment = async (req, res) => {
       include: { items: { include: { product: true } } }
     })
 
-    // clear cart after successful order
     await prisma.cartItem.deleteMany({ where: { cartId: cart.id } })
 
     res.json({ order, message: 'Payment successful' })

@@ -100,7 +100,7 @@ export default function ProductDetail() {
                   <Star
                     key={i}
                     size={18}
-                    className={i < Math.floor(product.rating) ? "fill-accent text-accent" : "text-border"}
+                    className={i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-border"}
                   />
                 ))}
               </div>

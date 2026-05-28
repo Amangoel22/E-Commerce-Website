@@ -39,7 +39,7 @@ export default function ProductCard({ product, onAddToCart }) {
               <Star
                 key={i}
                 size={14}
-                className={i < Math.floor(product.rating) ? "fill-accent text-accent" : "text-border"}
+                className={i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-border"}
               />
             ))}
           </div>

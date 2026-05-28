@@ -25,7 +25,7 @@ export default function PromoBanner() {
           <p className="text-sm md:text-base text-foreground animate-fade-in transition-all duration-500">
             {messages[currentMessage].text}
           </p>
-          <div className="inline-block px-3 py-1 bg-accent text-accent-foreground rounded-full text-xs font-medium">
+          <div className="inline-block px-3 py-1 bg-foreground text-background rounded-full text-xs font-medium">
             Code: {messages[currentMessage].code}
           </div>
         </div>
